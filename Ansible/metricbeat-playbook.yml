@@ -1,0 +1,23 @@
+---
+  - name: Metricbeat installation playbook on webserver
+    hosts: webservers
+    become: true
+    
+    tasks:
+    - name: download and install Metricbeat .deb file
+      apt:
+        deb: https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.4.0-amd64.deb
+
+    - name: Copy metricbeat configuration file to webservers
+      copy:
+         src: /etc/ansible/metricbeat-config.yml
+         dest: /etc/metricbeat/metricbeat.yml
+
+    - name: run command
+      command: metricbeat modules enable system
+
+    - name: run command
+      command: metricbeat setup
+
+    - name: run command
+      command: metricbeat -e

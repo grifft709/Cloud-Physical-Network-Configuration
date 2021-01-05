@@ -1,0 +1,28 @@
+---
+  - name: filebeat installation playbook on webserver
+    hosts: webservers:10.1.0.4
+    become: true
+    
+    tasks:
+    - name: Download .deb file from artifacts.elastic.co
+      apt:
+        deb: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb 
+
+    - name: Copy filebeat configuration file to webservers
+      copy:
+        src: /etc/ansible/filebeat-config.yml
+        dest: /etc/filebeat/filebeat.yml
+
+    - name: run command
+      command: filebeat modules enable system
+
+    - name: run command
+      command: filebeat setup
+
+    - name: run command
+      command: service filebeat start
+        
+    - name: start filebeat on boot
+      systemd:
+        name: filebeat
+        enabled: yes     
