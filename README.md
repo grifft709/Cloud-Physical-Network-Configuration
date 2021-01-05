@@ -7,10 +7,11 @@ The files in this repository were used to configure the network depicted below.
 
 The files in this repository were used to configure the network depicted below.
 
-![Diagrams/cloud_network_diagram.jpg]
+![Network Diagram](https://github.com/grifft709/Cloud-Physical-Nertwork-Configuration/blob/main/Diagrams/cloud_network_diagram.jpg)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
 
+[Filebeat](../Ansible/filebeat-playbook.yml)
 
 This document contains the following details:
 - Description of the Topology
@@ -19,7 +20,6 @@ This document contains the following details:
   - Beats in Use
   - Machines Being Monitored
 - How to Use the Ansible Build
-
 
 ### Description of the Topology
 
@@ -62,7 +62,6 @@ A summary of the access policies in place is displayed below.
 | Webservers      | Yes                 | Any                |
 | VM1             | Yes                 | 135.23.XX.XX       |
 
-
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
@@ -70,7 +69,7 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ... Give user admin right to perform the installation
+- ... Become the root user as to not get prompted for password.
 - ...Install docker container. Elk will be installed on the container
 -… Install python3-pip
 -…Install pip docker module
@@ -78,33 +77,31 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![Diagrams/docker.png]
+![Docker ps](https://github.com/grifft709/Cloud-Physical-Nertwork-Configuration/blob/main/Diagrams/docker.PNG)
 
 ### Target Machines & Beats
+
 This ELK server is configured to monitor the following machines:
 - 10.1.0.4
-10.1.0.5
-10.1.0.6
-10.1.0.7
- List the IP addresses of the machines you are monitoring_
+- 10.1.0.5
+- 10.1.0.6
+- 10.1.0.7
 
 We have installed the following Beats on these machines:
 - Filebeat
- Specify which Beats you successfully installed_
 
 These Beats allow us to collect the following information from each machine:
-- Filebeat collects system logs. An example of of system logs that Filebeat may collect is user Syslogs. Metricbeats monitors server applications and collect metric data. _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- Filebeat collects system logs. An example is Syslogs. Metricbeats monitors server applications and collect metric data.
 
 ### Using the Playbook
+
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
 - Copy the configuration file to the remote machine 
-- Update the configuration file to include to include the hope IP or FQDN
-- Run the playbook, and navigate to curl http://localhost:5601/app/kibana to check that the installation worked as expected.
+- Update the configuration file to include to include the host IP or FQDN
+- Run the playbook, and navigate to the remote machine to check that the installation worked as expected. Depending on what is being installed the systemctl can be used to check that service is running.
 
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
 
 
