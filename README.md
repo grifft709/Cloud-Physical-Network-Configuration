@@ -1,7 +1,5 @@
 # Cloud-Physical-Nertwork-Configuration
-This repository contains diagrams and scripts for configuring a physical and cloud network. For more detail refer to the README.
-
-The files in this repository were used to configure the network depicted below.
+This repository contains diagrams and scripts for configuring a physical and cloud network.
 
 ## Automated ELK Stack Deployment
 
@@ -9,7 +7,7 @@ The files in this repository were used to configure the network depicted below.
 
 ![Network Diagram](https://github.com/grifft709/Cloud-Physical-Nertwork-Configuration/blob/main/Diagrams/cloud_network_diagram.jpg)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the ploybook file may be used to install only certain pieces of the network, such as Filebeat.
 
 [Filebeat](../Ansible/filebeat-playbook.yml)
 
@@ -41,17 +39,18 @@ The configuration details of each machine are displayed below.
 | Web-1    | Webserver  | 10.1.0.5   | Linux            |
 | Web-2    | Webserver  | 10.1.0.6   | Linux            |
 | Web-3    | Webserver  | 10.1.0.7   | Linux            |
-| VM1      | Log Server | 10.0.0.4   | Linux            |
+| VM1      | Log Server/Elk | 10.0.0.4   | Linux            |
 
 ### Access Policies
 
-The machines on the internal network are not exposed to the public Internet. 
+The machines on the internal network are visible to the public Internet. 
 
 Only the Jump-Box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 - 135.23.XX.XX
 
-Machines within the network can only be accessed by Jump-Box.
-- Only the Jump-Box ansible container can access VM1, the Elk VM. The IP address is 10.1.0.4
+Machines within the network are only accessible through Jump-box.
+
+-Only the Jump-box docker container can access the Elk VM, VM1. The IP address is 10.1.0.4
 
 A summary of the access policies in place is displayed below.
 
@@ -64,16 +63,18 @@ A summary of the access policies in place is displayed below.
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- Automation is more time efficient as it allows for multiple devices requiring the same applications to be configured at the same time.
+We used Ansible to automate the configuration of the Elk machines. There was no manual configuration, which is advantageous because...
+- Automation is more time-efficient as it allows the configuring of multiple devices that require the same configuration.
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ... Become the root user as to not get prompted for password.
-- ...Install docker container. Elk will be installed on the container
--… Install python3-pip
--…Install pip docker module
--…Increase the memory of the VM  
+
+[Elk](../Ansible/install-elk.yml)
+
+- ...Install Docker
+-… Install Python3-pip
+-…Install Pip Docker module
+-…Increase the memory of the VM
+-...Install the Elk container image
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -101,7 +102,3 @@ SSH into the control node and follow the steps below:
 - Copy the configuration file to the remote machine 
 - Update the configuration file to include to include the host IP or FQDN
 - Run the playbook, and navigate to the remote machine to check that the installation worked as expected. Depending on what is being installed the systemctl can be used to check that service is running.
-
-
-
-
