@@ -9,9 +9,8 @@ The files in this repository were used to configure the network depicted below.
 
 ![Diagrams/cloud_network_diagram.jpg]
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
 
-  - _TODO: Enter the playbook file._
 
 This document contains the following details:
 - Description of the Topology
@@ -26,12 +25,13 @@ This document contains the following details:
 
 The network aims to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly available, in addition to restricting _____ to the network.
+Load balancing ensures that the application will be highly available, in addition to restricting large traffic to the network.
+
 - Load Balancers protect against Denial of Service (DoS) attacks. The more visitors to a site increases the chances of a server going down. A load balance prevents that from happening by redirecting traffic to other servers capable of performing the same task. A Jump-box provides a single entry point for traffic entering a network., which allows for traffic monitoring before continuing to the final destination.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the machines and system data.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
+- Filebeat watches for errors with a system
+- Metricbeat records metric for server apllications
 
 The configuration details of each machine are displayed below.
 
@@ -62,6 +62,7 @@ A summary of the access policies in place is displayed below.
 | Webservers      | Yes                 | Any                |
 | VM1             | Yes                 | 135.23.XX.XX       |
 
+
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
@@ -77,7 +78,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![Diagrams/docker.png](Images/docker_ps_output.png)
+![Diagrams/docker.png]
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
