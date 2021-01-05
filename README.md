@@ -50,7 +50,7 @@ Only the Jump-Box machine can accept connections from the Internet. Access to th
 
 Machines within the network are only accessible through Jump-box.
 
--Only the Jump-box docker container can access the Elk VM, VM1. The IP address is 10.1.0.4
+- Only the Jump-box docker container can access the Elk VM, VM1. The IP address is 10.1.0.4
 
 A summary of the access policies in place is displayed below.
 
@@ -70,11 +70,11 @@ The playbook implements the following tasks:
 
 [Elk](../Ansible/install-elk.yml)
 
-- ...Install Docker
--… Install Python3-pip
--…Install Pip Docker module
--…Increase the memory of the VM
--...Install the Elk container image
+- Install Docker
+- Install Python3-pip
+- Install Pip Docker module
+- Increase the memory of the VM
+- Install the Elk container image
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
