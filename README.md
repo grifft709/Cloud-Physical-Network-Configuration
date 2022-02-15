@@ -1,4 +1,4 @@
-# Cloud-Physical-Nertwork-Configuration
+# Cloud-Physical-Network-Configuration
 This repository contains diagrams and scripts for configuring a physical and cloud network.
 
 ## Automated ELK Stack Deployment
