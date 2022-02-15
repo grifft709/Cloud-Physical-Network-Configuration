@@ -9,7 +9,7 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the ploybook file may be used to install only certain pieces of the network, such as Filebeat.
 
-[Filebeat](../Ansible/filebeat-playbook.yml)
+[Filebeat](https://github.com/grifft709/Cloud-Physical-Nertwork-Configuration/blob/main/Ansible/filebeat-playbook.yml)
 
 This document contains the following details:
 - Description of the Topology
@@ -68,7 +68,7 @@ We used Ansible to automate the configuration of the Elk machines. There was no 
 
 The playbook implements the following tasks:
 
-[Elk](../Ansible/install-elk.yml)
+[Elk](https://github.com/grifft709/Cloud-Physical-Nertwork-Configuration/blob/main/Ansible/install-elk.yml)
 
 - Install Docker
 - Install Python3-pip
