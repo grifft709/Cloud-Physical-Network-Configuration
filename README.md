@@ -28,8 +28,8 @@ Load balancing ensures that the application will be highly available, in additio
 - Load Balancers protect against Denial of Service (DoS) attacks. The more visitors to a site increases the chances of a server going down. A load balance prevents that from happening by redirecting traffic to other servers capable of performing the same task. A Jump-box provides a single entry point for traffic entering a network., which allows for traffic monitoring before continuing to the final destination.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the machines and system data.
-- Filebeat watches for errors with a system
-- Metricbeat records metric for server apllications
+- Filebeat watches for errors in a system
+- Metricbeat records metric for server applications
 
 The configuration details of each machine are displayed below.
 
